@@ -23,9 +23,9 @@ public class Cos333prac1Task2 {
       //  System.out.println("hello there and welcome");
         task2Reader task2 = new task2Reader();
 //to run the main for task 2       
-         //task2.mainRun();
+         task2.mainRun();
         cos332prac1task3 phi = new cos332prac1task3();
-        phi.placeIntoArrays();
+//        phi.placeIntoArrays();
     }
     
 }

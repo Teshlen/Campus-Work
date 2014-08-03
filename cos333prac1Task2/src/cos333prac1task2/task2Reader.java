@@ -47,34 +47,51 @@ public class task2Reader {
     }
 
     public void readIntoStack() throws IOException {
+        alternateStack.push('(');
         for (int x = 0; x < input.length(); x++) {
-            stack.push(input.charAt(x));
+            if (input.charAt(x) != ')') {
+                stack.push(input.charAt(x));
 
-            if ((char) stack.peek() == ')') {
-                stack.pop();
+            }
+            if (input.charAt(x) == ')') {
                 while ((char) stack.peek() != '(') {
-                    // if(!stack.isEmpty())
                     alternateStack.push(stack.pop());
+                    //alternateStack.push('@');
                 }
-                stack.pop();
+                alternateStack.push(stack.pop());
             }
         }
+        alternateStack.pop();
+        System.out.println(alternateStack.toString());
+        System.out.println(alternateStack.peek());
 
+        //
         while (!alternateStack.isEmpty()) {
+            if (Character.isLetter((char) alternateStack.peek()) || Character.isDigit((char) alternateStack.peek())) {
+                System.out.println("LOAD " + alternateStack.peek() + ";");
+                writeCode.writeLineToFile("LOAD " + alternateStack.pop() + ";");
+
+            }
             if ((char) alternateStack.peek() == '+' || (char) alternateStack.peek() == '-' || (char) alternateStack.peek() == '*' || (char) alternateStack.peek() == '/' || (char) alternateStack.peek() == '#') {
                 operation1 += alternateStack.pop();
-                loaded = true;
-
             }
-            if (Character.isLetter((char) alternateStack.peek()) || Character.isDigit((char) alternateStack.peek())) {
-                writeCode.writeLineToFile("LOAD " + alternateStack.pop() + ";");
+            if ((char) alternateStack.peek() == '(') {
+                count++;
+                alternateStack.pop();
             }
+          //  System.out.println("time " + operation1);
 
         }
-        for (int p = operation1.length() - 1; p > -1; p--) {
-            writeCode.writeLineToFile("EXEC " + operation1.charAt(p) + ";");
+        if (count > 1) {
+            for (int p = operation1.length() - 1; p > -1; p--) {
+                System.out.println("EXEC " + operation1.charAt(p) + ";");
+                count = 0;
+                writeCode.writeLineToFile("EXEC " + operation1.charAt(p) + ";");
+                //writeCode.closeTextFile();
+            }
         }
-        writeCode.writeLineToFile("");
+//         
         writeCode.closeTextFile();
     }
+
 }
