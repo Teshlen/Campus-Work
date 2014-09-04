@@ -62,25 +62,27 @@ public class Database {
         }
     }
 
-//    public static void main(String[] args) throws IOException {
-//        open();
-//        Users x = new Users();
-//        System.out.println("enter name: ");
-//        x.name = reader.readLine();
-//        System.out.println("enter surname: ");
-//        x.surname = reader.readLine();
-//        System.out.println("enter account number: ");
-//        x.accountNumber = reader.readLine();
-//        System.out.println("enter password: ");
-//        x.password = reader.readLine();
-//        System.out.println("pass: " + x.password);
-//        System.out.println("enter salary: ");
-//        x.salary = reader.readLine();
-//        System.out.println("enter expenses : ");
-//        x.expenses = reader.readLine();
-//        db.store(x);
-//        db.close();
-//
-//    }
+    public  void addPeople() throws IOException {
+        open();
+        Users x = new Users();
+        System.out.println("enter name: ");
+        x.name = reader.readLine();
+        System.out.println("enter surname: ");
+        x.surname = reader.readLine();
+        System.out.println("enter account number: ");
+        x.accountNumber = reader.readLine();
+        System.out.println("enter password: ");
+        x.password = reader.readLine();
+        System.out.println("enter email address: ");
+        x.emailAddress = reader.readLine();
+        System.out.println("pass: " + x.password);
+        System.out.println("enter salary: ");
+        x.salary = reader.readLine();
+        System.out.println("enter expenses : ");
+        x.expenses = reader.readLine();
+        db.store(x);
+        db.close();
+
+    }
 
 }

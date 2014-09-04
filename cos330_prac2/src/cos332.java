@@ -51,10 +51,7 @@ public class cos332 {
     public int counter;
 //private String current;
 
-    public static void main(String[] args) {
-        cos332 s = new cos332(55555);
-        s.start();
-    }
+    
 
     public cos332(int port) {
         try {
@@ -224,6 +221,8 @@ public class cos332 {
             response += "Salary : " + f.salary + br;
             response += "Expenses : " + f.expenses + br;
             response += "</h3>";
+            SendEmail send = new SendEmail();
+            send.sendingEmailTo(f.emailAddress);
             mes = "";
             // response += "<p> " + br +checkAccountNumber(accountNumber) + "</p>" + br;
         }else

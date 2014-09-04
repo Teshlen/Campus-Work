@@ -13,6 +13,7 @@ public class Users {
     public String surname;
     public String accountNumber;
     public String password;
+    public String emailAddress;
     //billing info
     public String salary;
     public String expenses;
