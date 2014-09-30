@@ -1,0 +1,46 @@
+1.
+
+//musician/name
+
+2.
+
+//musician[name/ text() contains text "Zebra and Giraffe"]/albums/album
+
+3.
+
+//musician[albums/album/text() contains text "Lateralus"]/name
+
+4.
+
+//musician[ genre / text() contains text "pop" ]
+
+5.
+
+//musician[@type = 'solo']
+
+6.
+
+//musician [@type = 'solo'] [2]/name | //musician[@type = 'solo'][2]/genre
+
+7.
+
+//musician [name/text() = 'Ben Folds'] /albums/album[4]
+
+8.
+
+//album[@year >= 2008]
+
+9.
+
+for $i in //musicians/musician let $maximum := $i/albums/album[last()]/@year let $minimum := $i/albums/album[1]/@year let $difference := $maximum - $minimum let $iAl := count($i/albums/album)
+let $y := ($difference + 1) div $iAl
+let $e := string($y)
+let $t := $i/name
+order by $y descending 
+return concat($t, ': ', $e, '&#10;')
+
+10.
+--- number of basists in bands
+for $x in //musicians/musician[@type = "band"] let $w := $x/members
+let $bassers := count($w/member[@instrument = "bass"])
+order by $bassers descending return concat($x/name, ': ', $bassers, '&#10;')
