@@ -20,7 +20,7 @@ public class Cos330prac5 {
         String message = "This is a test message to encrypt and decrypt";
         String passPhrase = "Ethics";
         
-        System.out.println("Message: ");
+        System.out.println("Message to encrypt: ");
         System.out.println(message);
         System.out.println("");
         System.out.println("Pass Phrase:");
@@ -33,14 +33,31 @@ public class Cos330prac5 {
         passPhrase = passPhrase.toLowerCase();        
         cypher x = new cypher(message, passPhrase);
         x.createTableau();
+        
         String encodedMessage = x.encode();
+        
+        
+        System.out.println("");
+        System.out.println("Message to decrypt:");
+        System.out.println(encodedMessage);
+        
+        System.out.println("");
+        System.out.println("Decoded Message:");
+        
+        //to test encoded message:
+        //edit this next line:
+        //encodedMessage = ;
+        String decryptedMessage = x.decrypt(encodedMessage);
+        
+        System.out.println(decryptedMessage);
         
 //        if(encodedMessage.matches("SGFXSOCIYXEDQZTTYPSNYLWWEOGTHURSACCHS"))
 //        {
 //            System.out.println("it works :)!!!!!!!");
 //        }
-        
-       // x.printTable();
+        System.out.println("");
+        System.out.println("Here is the generated Vigenere table:");
+        x.printTable();
     }
     
 }
