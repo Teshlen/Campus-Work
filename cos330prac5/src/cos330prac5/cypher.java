@@ -17,7 +17,8 @@ public class cypher {
     private String encodedMessage;
     private String decodedMessage;
 
-    public cypher(String mes, String pas) {
+    public
+            cypher(String mes, String pas) {
         vigenereTableau = new String[26][26];
         message = mes;
         passphrase = pas;
@@ -25,8 +26,8 @@ public class cypher {
         encodedMessage = "";
         decodedMessage = "";
 
-        for (int i = 0; i < origionalText.length(); i++) {
-            for (int j = 0; j < origionalText.length(); j++) {
+        for (int i = 0; i < origionalText.length(); i ++) {
+            for (int j = 0; j < origionalText.length(); j ++) {
                 vigenereTableau[i][j] = "@";
 
             }
@@ -34,29 +35,30 @@ public class cypher {
         }
     }
 
-    public void createTableau() {
+    public
+            void createTableau() {
 
-        for (int i = 0; i < origionalText.length(); i++) {
+        for (int i = 0; i < origionalText.length(); i ++) {
 
             boolean flag = false;
             int count = i;
-            for (int j = 0; j < origionalText.length() - i; j++) {
+            for (int j = 0; j < origionalText.length() - i; j ++) {
 
-                vigenereTableau[i][j] = origionalText.charAt(count++) + "";
+                vigenereTableau[i][j] = origionalText.charAt(count ++) + "";
             }
 
             int c = 0;
-            for (int j = origionalText.length() - i; j < origionalText.length(); j++) {
+            for (int j = origionalText.length() - i; j < origionalText.length(); j ++) {
 
-                vigenereTableau[i][j] = origionalText.charAt(c++) + "";
+                vigenereTableau[i][j] = origionalText.charAt(c ++) + "";
             }
         }
 
     }
 
     public void printTable() {
-        for (int i = 0; i < origionalText.length(); i++) {
-            for (int j = 0; j < origionalText.length(); j++) {
+        for (int i = 0; i < origionalText.length(); i ++) {
+            for (int j = 0; j < origionalText.length(); j ++) {
                 System.out.print(vigenereTableau[i][j] + " ");
 
             }
@@ -65,14 +67,15 @@ public class cypher {
 
     }
 
-    public String encode() {
+    public
+            String encode() {
 
         String longPassPhrase = "";
         origionalText = origionalText.toLowerCase();
 
         int numberOfPasses = (message.length() / passphrase.length()) + 10;
 
-        for (int i = 0; i < numberOfPasses; i++) {
+        for (int i = 0; i < numberOfPasses; i ++) {
             longPassPhrase += passphrase;
         }
 
@@ -80,7 +83,7 @@ public class cypher {
         char letterOfPassphrase;
         int indexOfLetterOfMessage;
         int indexOfLetterOfPassphrase;
-        for (int i = 0; i < message.length(); i++) {
+        for (int i = 0; i < message.length(); i ++) {
 
             letterOfMessage = message.charAt(i);
             letterOfPassphrase = longPassPhrase.charAt(i);
@@ -97,23 +100,24 @@ public class cypher {
 
     }
 
-    public String decrypt(String encodedMessageForDecryption) {
+    public
+            String decrypt(String encodedMessageForDecryption) {
         String longPassPhrase = "";
         origionalText = origionalText.toLowerCase();
 
         int numberOfPasses = (message.length() / passphrase.length()) + 10;
 
-        for (int i = 0; i < numberOfPasses; i++) {
+        for (int i = 0; i < numberOfPasses; i ++) {
             longPassPhrase += passphrase;
         }
 
         int indexOfOrigionalMessage = 0;
         int indexInLongPassPhrase = 0;
-        for (int i = 0; i < encodedMessageForDecryption.length(); i++) {
+        for (int i = 0; i < encodedMessageForDecryption.length(); i ++) {
 
             indexInLongPassPhrase = origionalText.indexOf(longPassPhrase.charAt(i) + "");
 
-            for (int j = 0; j < 26; j++) {
+            for (int j = 0; j < 26; j ++) {
                 if (vigenereTableau[indexInLongPassPhrase][j].contains(encodedMessageForDecryption.charAt(i) + "")) {
                     indexOfOrigionalMessage = j;
                 }
