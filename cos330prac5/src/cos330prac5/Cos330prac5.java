@@ -50,10 +50,11 @@ public class Cos330prac5 {
         
         System.out.println(decryptedMessage);
         
-//        if(encodedMessage.matches("SGFXSOCIYXEDQZTTYPSNYLWWEOGTHURSACCHS"))
-//        {
-//            System.out.println("it works :)!!!!!!!");
-//        }
+        if(encodedMessage.matches("SGFXSOCIYXEDQZTTYPSNYLWWEOGTHURSACCHS"))
+        {
+            System.out.println("");
+            System.out.println("it works :)!!!!!!!");
+        }
         System.out.println("");
         System.out.println("Here is the generated Vigenere table:");
         x.printTable();
