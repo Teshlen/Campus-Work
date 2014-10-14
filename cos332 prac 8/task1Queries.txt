@@ -1,0 +1,39 @@
+Entity
+type
+property: value relationships with entity whose
+label and property
+is
+relationship
+property:value
+Person, Johan since: 2012
+FOLLOWS
+Person, Neo since: 2009
+Person name: @Thandi
+from: Durban
+age: 20
+TWEETED Tweet, #Trees date: 30-09-2014
+Person name: @Johan FOLLOWS Person, Thandi since: 2010
+from: Pretoria
+age: 19 RETWEETED Tweet, #Trees date: 01-10-2014
+Person, Thandi since: 2014
+FOLLOWS
+Person, Melanie since: 2014
+Person name: @Neo
+from: Tshwane
+age: 22
+TWEETED Tweet, #Rhinos date: 01-10-2014
+Person, Johan since: 2010
+FOLLOWS
+Person, Thandi since: 2010
+Person name: @Melanie
+from: Joburg
+age: 21
+FAVORITED Tweet, #Rhinos date: 02-10-2014
+Tweet hashtag: #Trees
+message:
+“provide oxygen”
+As above
+Tweet hashtag: #Rhinos
+message:
+“are innocent”
+As above

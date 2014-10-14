@@ -5,7 +5,6 @@
  */
 
 package cos330prac5;
-
 /**
  *
  * @author Teshlen
@@ -58,6 +57,7 @@ public class Cos330prac5 {
         System.out.println("");
         System.out.println("Here is the generated Vigenere table:");
         x.printTable();
+        
     }
     
 }
