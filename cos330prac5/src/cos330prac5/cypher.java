@@ -17,6 +17,11 @@ public class cypher {
     private String encodedMessage;
     private String decodedMessage;
 
+    /**
+     *
+     * @param mes add
+     * @param pas
+     */
     public
             cypher(String mes, String pas) {
         vigenereTableau = new String[26][26];

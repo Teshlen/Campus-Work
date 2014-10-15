@@ -33,7 +33,8 @@ public class Cos330prac5 {
         cypher x = new cypher(message, passPhrase);
         x.createTableau();
         
-        String encodedMessage = x.encode();
+        String encodedMessage;
+        encodedMessage = x.encode();
         
         
         System.out.println("");
